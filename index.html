@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Responsive Weather Site</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+
+    <!-- TBA, Place city name/country side by side with condition/temp -->
+
+    <div class="full-display">
+
+        <article class="location-info">
+            <h1 id="location-info">NAME, REGION, COUNTRY</h1>
+            <p id="local-time">local time</p>
+            <p id="last-update">Last Updated</p>
+        </article>
+    
+        
+        
+        <article class="condition-info">
+            <img id="weather-icon" alt="[Insert Icon Here]">
+            <h3 id="condition">Condition</h3>
+        </article>
+
+        <div class="number-data">
+            <h4 class="data-header">Temperature</h4>
+                <p class="data-number" id="temp"></p>
+    
+            <h4 class="data-header">Heat Index</h4>
+                <p class="data-number" id="heat-index"></p>
+    
+            <h4 class="data-header">UV</h4>
+                <p class="data-number" id="uv-index"></p>
+    
+            <h4 class="data-header">Wind speed</h4>
+                <p class="data-number" id="wind"></p>
+    
+            <h4 class="data-header">Visibility</h4>
+                <p class="data-number" id="visibility"></p>
+    
+            <h4 class="data-header">Other</h4>
+                <p class="data-number"></p>
+        </div>
+
+    </div>
+
+    <header>
+        <input id="text-input" type="text" placeholder="enter city here" />
+        <button id="submit-button"> Click Here </button>
+    </header>
+</body>
+</html>

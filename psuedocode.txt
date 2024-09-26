@@ -1,0 +1,56 @@
+Must be MOBILE and DESKTOP responsive
+
+`http://api.weatherapi.com/v1/current.json?key=${key}&q=${city}&aqi=no`
+
+Must consider:
+
+    response.data.condition.icon (Looks like this) ("//cdn.weatherapi.com/weather/64x64/day/116.png")
+        Must get rid of first two dashes... I think
+        Or append 'https:' to it?
+
+    Cities with same name (Springfield)
+        Must specify each one
+    Cities with Multiple names (New York City)
+        Must find way to allow user input
+
+========================================================
+
+Pull request should get
+
+    City name (response.data.location.name)
+    Country name (response.data.location.country)
+    Local time (response.data.location.local_time)
+    Last Updated (response.data.current.last_updated)
+
+    Weather Condition text (response.data.current.condition.text)
+    Weather Condition icon (response.data.current.condition.icon)
+
+    current temp (Metric and Imperial)
+        (response.data.current.temp_f)
+        (response.data.current.temp_c)
+
+    Current wind (Metric and Imperial)
+        (response.data.current.wind_mph)
+        (response.data.current.wind_km)
+
+    Current visibility (Metric and Imperial)
+        (response.data.current.vis_miles)
+        (response.data.current.vis_km)
+
+    current Heat Index (Metric and Imperial)
+        (response.data.current.heatindex_f)
+        (response.data.current.heatindex_c)
+
+=========================================
+
+handling Multi-word cities
+
+Maybe... 
+1. Turn user input into an array
+2. use .join('%20') to mix it
+
+city = city.split(' ').join('%20')
+
+=========================================
+
+handling Same-name cities (Springfield)
