@@ -44,10 +44,32 @@ buttonEl.addEventListener('click', async () => {
     weatherIcon.setAttribute ('alt', city)
     weatherCondition.textContent = `${response.data.current.condition.text}`
 
-    temp.textContent = `Temp - ${response.data.current.temp_f} (°F) · (${response.data.current.temp_c}(°C)`
-    heatIndex.textContent = `Heat Index - ${response.data.current.heatindex_f} (°F) · ${response.data.current.heatindex_c} (°C)`
-    uvIndex.textContent =  `UV: ${response.data.current.uv}`
+    temp.textContent = `${response.data.current.temp_f} (°F) · (${response.data.current.temp_c}(°C)`
+    heatIndex.textContent = `${response.data.current.heatindex_f} (°F) · ${response.data.current.heatindex_c} (°C)`
+    uvIndex.textContent =  `${response.data.current.uv}`
     
-    wind.textContent = `Wind - ${response.data.current.wind_mph} (mph) ${response.data.current.wind_mph} (km)`
-    visibility.textContent = `Visibility - ${response.data.current.vis_miles} (miles) · ${response.data.current.vis_km} (km)`
+    wind.textContent = `${response.data.current.wind_mph} (mph) ${response.data.current.wind_mph} (km)`
+    visibility.textContent = `${response.data.current.vis_miles} (miles) · ${response.data.current.vis_km} (km)`
+
+    if (response.data.current.temp_f < 30) {
+        document.body.style.background = 'linear-gradient(silver, gray, lightgray, silver)'
+    } else if (response.data.current.temp_f >= 30 && response.data.current.temp_f < 40) {
+        document.body.style.background = 'linear-gradient(silver, lightgray, lightblue, silver, green)'
+    } else if (response.data.current.temp_f >= 40 && response.data.current.temp_f < 50) {
+            document.body.style.background = 'linear-gradient(lightblue, cyan, cyan, green)'
+    } else if (response.data.current.temp_f >= 50 && response.data.current.temp_f < 60) {
+            document.body.style.background = 'linear-gradient(blue, cyan, cyan, green)'
+    } else if (response.data.current.temp_f >= 60 && response.data.current.temp_f < 75) {
+        document.body.style.background = 'linear-gradient(blue, purple, orange, orange)'
+    } else if (response.data.current.temp_f >= 75 && response.data.current.temp_f <= 90) {
+        document.body.style.background = 'linear-gradient(orange, darkgoldenrod, orange, red)'
+    } else {
+        document.body.style.background = 'linear-gradient(orange, red, red)'
+    }
+
+    // Fixes repeating background
+    document.body.style.backgroundRepeat = 'no-repeat'
+    document.body.style.backgroundAttachment = 'fixed'
+    document.body.style.backgroundSize = 'auto'
 })
+background: linear-gradient(blue, cyan, cyan, green);
